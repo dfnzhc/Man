@@ -24,7 +24,7 @@ using numeric_limits = ::cuda::std::numeric_limits<T>;
 #endif
 
 namespace man {
-#define MAN_DEFINE_CONSTANT(name, val)  \
+#define MAN_DEFINE_CONSTANT(name, val)                  \
     constexpr auto k##name = static_cast<Real>(val);    \
     constexpr auto k##name##_f = static_cast<f32>(val)
 

@@ -20,15 +20,23 @@ add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 # Settings
 # --------------------------------------------------------------
 
+# Include all CMake Macros.
+include(Macros)
+# Determine information about the compiler.
+include (CompilerInfo)
+# Check for specific machine/compiler options.
+include (ConfigCompilerFlags)
+# Find and setup CUDA.
+include (SetupCUDA)
+
 # options
 option(MAN_BUILD_LIBRARY "Build dynamic/static library" ON)
-option(MAN_BUILD_TESTS "Build the test programs" ON)
+option(MAN_BUILD_TESTS "Build the test programs" OFF)
 option(MAN_ENABLE_FAST_MATH "Enable fast math optimizations" OFF)
 option(MAN_USE_DOUBLE_PRECISION "Use double precision" OFF)
 
 # compiler settings
 
-set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

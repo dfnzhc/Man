@@ -45,7 +45,18 @@ target_compile_definitions(Man
             # Clang.
             $<$<CXX_COMPILER_ID:Clang>:_MSC_EXTENSIONS> # enable MS extensions
 )
-    
+
+target_link_libraries(Man 
+            PUBLIC
+            CUDA::cudart
+            CUDA::cuda_driver
+            # CUDA::cublas
+            # CUDA::cublasLt
+            # CUDA::cufft
+            # CUDA::cusolver
+            # CUDA::curand
+)
+
 if (MAN_USE_DOUBLE_PRECISION)
 target_compile_definitions(Man
             PUBLIC
